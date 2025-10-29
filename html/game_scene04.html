@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+    <script type="text/javascript" src="../JS/jquery.js"></script>
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+    <audio  autoplay="autoplay" loop  id="music">
+        <source src="../bgm/main_theme A.mp3" >
+    </audio>
+    <!-- 背景图片 -->
+    <div>
+        <img src="../image/homesad.gif" class="backgroundImg" draggable="false">
+    </div>
+
+    <div>
+        <div class="calendar calendar0">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div id="A"></div>
+        <div id="D"></div>
+        <div class="text_box" onclick="nextDialog();pic();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // 对话内容
+        var dialog_data = [
+            "你已经和这个新来到的仿生人生活了一段时间了...",
+            "Jill...或者说它的外表一切都很完美，身材、声音、发质、脸庞...",
+            "一切都如你记忆中那样...",
+            "“Jill”会和你聊起过去的事情，会一如往常的谈起你们喜欢的球队和啤酒。",
+            "“她”还是一如往常的兴趣广泛，开朗好动……",
+            "需要的不是自己而是任何一个人",
+
+            "这球不进？这球不进？这球不进？怎么一个个都是...",
+            "Jill攥着手在电视前全神贯注地关注着球赛",
+            "凭什么被德福特伦布进了四个呢...",
+            "还是那样的痴迷于足球，还是那么充满着活力...",
+            "但是你总觉得，“Jill”缺少了最关键的灵魂。",
+            "想到这里，你不禁有些口渴，正在你挠着嗓子转头寻找水杯时，Jill已经默契地帮你拿好了。",
+            "我来吧！今天过的怎么样？",
+
+            "你没有回答。Jill从不会这样细致入微的照顾你。",
+            "事实上，Jill的家庭内务简直就是一团糟，往往是你在一直收拾。",
+            "你望着Jill轻巧的整理着屋子，感到一阵烦闷。",
+            "仿生人做的比真人还要真，你每天都能从它身上发现过去从没注意到的Jill的特点。",
+            "毫无疑问，这个仿生人是完美的。只是你感觉，它并不是你的伴侣。而可以是任何一个人的",
+            "贤惠，热情，善良……它身上有着所有所有的优点，但这一点也不Jill",
+
+        ];
+        // 对话对应的speaker名，觉得不需要可以打空格
+        var speaker_data = [
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "Jill",
+            "（旁白）",
+            "Jill",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "Jill",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）"
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+        var f=0;
+        function nextScene() {
+            location.assign("game_scene4.5.html"); //载入的下一个场景名
+        }
+        var picture_order = [
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "Jill",
+            "（旁白）",
+            "Jill",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "Jill",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）"
+        ];
+        function playSound(){
+            var audio=document.getElementById("music");
+            if(audio.paused) {  
+                audio.load;     
+                audio.play(); 
+            }
+        }
+        //调用
+        window.onclick=function () {
+            playSound();
+        }
+    </script>
+</body>
+
+</html>

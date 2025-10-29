@@ -1,0 +1,404 @@
+/* 设置背景 */
+.backgroundImg{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position: center;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    left: 10%;
+    right: 10%;
+    top: 0;
+    width: 80%;
+    height: 100%;
+    z-index: -1;
+}
+
+.text_box{
+    position: absolute;
+    width: 80%;
+    height: 30%;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    opacity: 0.7;
+    z-index: 0;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 80%, transparent 100%);
+}
+
+.speaker_name{
+    position: absolute;
+    left: 2%;
+    top: 10%;
+    color: white;
+    z-index: 1;
+    font-size: 1.6vw;
+    font-family: 黑体;
+}
+
+.dialog_box{
+    position: absolute;
+    width: 82%;
+    height: 75%;
+    left: 15%;
+    top: 25%;
+    background-color: black;
+    z-index: 2;
+}
+
+#dialog{
+    position: absolute;
+    left: 0;
+    right: 6%;
+    top: 10%;
+    color:white;
+    z-index: 3;
+    font-size: 1.2vw;
+}
+
+.gameoption_box{
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 20%;
+    right: 20%;
+}
+
+.gameoption1{
+    position: absolute;
+    top:32%;
+    width:40%;
+    height:50px;
+    left:30%;
+    font-size: 20px;
+    opacity: 0.8;
+}
+.gameoption2{
+    position: absolute;
+    bottom:32%;
+    width:40%;
+    height:50px;
+    left:30%;
+    font-size: 20px;
+    opacity: 0.8;
+}
+.gameoption1,.gameoption2,.gameoption3 {
+  border: none;
+  background: transparent;
+    background: radial-gradient(circle,  rgb(64, 59, 53) 0%, transparent 100%);
+    color: #fff;
+    overflow: hidden;
+    cursor: pointer;
+}
+.gameoption1:hover,.gameoption2:hover ,.gameoption3:hover{
+    text-decoration: none;
+    color: #fff;
+}
+.gameoption1:before,.gameoption2:before ,.gameoption3:before{
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: rgba(34, 32, 30, 0.305);
+    opacity: 0.5;
+    background-size: 100% 100%;
+    animation: shiny-gameoption 5s ease-in-out infinite;
+}
+.gameoption1:hover,.gameoption2:hover,.gameoption3:hover{
+  opacity: 0.7;
+}
+
+
+
+@-webkit-keyframes shiny-gameoption {
+    0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+    81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+    100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+}
+
+.calendar2{
+    left: 10%;
+    width: 130px;
+    height: 40px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;     
+    border: none;
+    background-image: url("../image/calendar1.png");
+    background-size: 100% 100%;
+    z-index: 1;
+}
+.calendar0{
+    left: 10%;
+    width: 130px;
+    height: 40px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;     
+    border: none;
+    background-image: url("../image/calendar3.png");
+    background-size: 100% 100%;
+    z-index: 1;
+}
+.calendar1{
+  left: 10%;
+  width: 130px;
+  height: 40px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;     
+  border: none;
+  background-image: url("../image/calendar4.png");
+  background-size: 100% 100%;
+  z-index: 1;
+}
+.calendar:after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 5px;
+    background-image: url("../image/calendar2.png");
+    background-size: 100% 100%;
+    transition: all 0.3s ease;
+  }
+
+  .calendar:hover:after {
+    top: auto;
+    bottom: 0;
+    height: 100%;
+  }
+
+.last_dialog {
+    
+    z-index: 1;
+    position: absolute;
+    top: 1%;
+    right: 11%;
+    width: 5%;
+    height: 10%;
+    line-height: 0%;
+    padding: 0;
+    border: 1ex;
+    background: transparent;
+    background:url("../image/huisu.png");
+    background-size: 100% 100%;
+    cursor: pointer;
+  }
+  .last_dialog:hover {
+    z-index: 1;
+    position: absolute;
+    top: 1%;
+    right: 11%;
+    width: 5%;
+    height: 10%;
+    line-height: 0%;
+    padding: 0;
+    border: 1ex;
+    background: transparent;
+    background:url("../image/huisu.gif");
+    background-size: 100% 100%;
+  }
+  .next{
+    position: absolute;
+    width: 13%;
+    margin-top: 13%;
+    margin-left: 87%;
+    z-index: 2;
+}
+.people{
+    position: absolute;
+    width: 36%;
+    margin-top: 18%;
+    margin-left: 6%;
+    z-index: 0;
+}
+.voice{
+    position: absolute;
+    width: 13%;
+    margin-top: 1%;
+    margin-left: -15%;
+    z-index: 3;
+    opacity: 0.7;
+}
+.line{
+	position: absolute;
+	width: 81%;
+	height: 101%;
+	margin-top: -1%;
+	margin-left: 9%;
+	z-index: 0;
+	opacity: 1;
+}
+.change{
+    position: absolute;
+    width: 20%;
+    margin-top: -5%;
+    margin-left: 80%;
+    z-index: 2;
+}
+
+#A{
+  position: absolute;
+  left: 10%;
+  bottom:10%;
+  height: 40%;
+  width: 20%;
+  background-image: url("../image/man.png");
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+#B{
+  position: absolute;
+  left: 10%;
+  bottom:15%;
+  height: 32%;
+  width: 10%;
+  background-image: url("../image/phone.png");
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+  background-size: cover;
+  opacity: 0;
+}
+#C{
+  position: absolute;
+  left: 38%;
+  bottom:30%;
+  height: 60%;
+  width: 22%;
+  background-image: url("../image/phone.gif");
+  background-size:cover;
+  opacity: 0;
+}
+#D{
+  position: absolute;
+  left: 10%;
+  bottom:6%;
+  height: 40%;
+  width: 20%;
+  background-image: url("../image/girl.png");
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+#E{
+  position: absolute;
+  left: 12%;
+  bottom:12%;
+  height: 30%;
+  width: 10%;
+  background-image: url("../image/max.png");
+  background-size: cover;
+  border-radius: 15%;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+  opacity: 0;
+}
+#F{
+  position: absolute;
+  left: 40%;
+  bottom:30%;
+  height: 60%;
+  width: 18%;
+  background-image: url("../image/phone2.png");
+  background-size: cover;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+  opacity: 0;
+}
+#a{
+  background-image: url("../image/homesad.gif");
+  background-size: cover 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position: center;
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+}
+#b{
+  background-image: url("../image/sunrise.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position: center;
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  left: 10%;
+  right: 10%;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+}
+#c{
+  background-image: url("../image/Rachael.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position: center;
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+}
+#d{
+  background-image: url("../image/scene.jpg");
+  background-size: 80% 100%;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position: center;
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  left: 10%;
+  right: 10%;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;  
+}
+#e{
+  background-image: url("../image/game.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position: center;
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  left: 10%;
+  right: 10%;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+}

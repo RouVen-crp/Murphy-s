@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainmenu.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/logingame.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/font_define.css">
+
+    <title>注册</title>
+
+</head>
+
+<body onselectstart="return false;">
+
+    <div id="gameTitle">
+        <span style=" color:rgb(0, 232, 158);">RE:</span>re
+    </div>
+
+    <div id="register">
+        <label for="username" class="txt">账&nbsp&nbsp号：</label><input type="text" id="regUN" placeholder="请输入账号："><br>
+        <label for="password" class="txt">密&nbsp&nbsp码：</label><input type="password" id="regPW"
+            placeholder="请输入密码："><br>
+        <button onclick="reg()" class="menuOptions">注册</button>
+    </div>
+
+    <script src="../JS/save_and_load.js"></script>
+    <script>
+        const register = document.getElementById('register');
+
+        //注册方法
+        function reg() {
+            let username = document.getElementById('regUN').value;
+            let password = document.getElementById('regPW').value;
+            if (username === "" && password === "") {
+                alert("请输入用户名或密码！");
+            } else {
+                //判断用户名是否已经存在
+                if (username in localStorage) {
+                    alert("用户已经存在了，换一个试试吧");
+                    document.getElementById('regUN').value = "";
+                    document.getElementById('regPW').value = "";
+                } else {
+                    //如果不存在，则将用户名和密码存到网页中
+                    localStorage.setItem(username, password);
+                    make_load(username);
+                    make_achievements(username);
+                    alert("注册成功！");
+                    location.assign("game_login.html");
+                }
+            }
+        }  
+    </script>
+</body>
+
+</html>
+
+
+</body>
+
+</html>

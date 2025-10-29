@@ -1,0 +1,37 @@
+#login,#register{
+    width: 350px;
+    text-align: center;
+    margin: 450px auto;
+}
+#logUN,#logPW,#regUN,#regPW{
+    height: 30px;
+    padding-left: 10px;
+    background-color: rgba(186,186,186,0.5);
+    border: 1px solid #fafafa;
+    border-radius: 1em;
+    color: #fafafa;
+    outline: #000000;
+    
+}
+#logUN:hover,#logPW:hover,#regUN:hover,#regPW:hover{
+    background-color: rgba(149, 205, 255, 0.5);
+    border: 1px solid #fafafa;
+    -webkit-box-shadow: 0px 0px 6px #2a51ff;
+    -moz-box-shadow: 0px 0px 5px #2a51ff;
+    box-shadow: 0px 0px 5px #2a51ff; 
+}
+input::-webkit-input-placeholder {
+    color: #bfecf9;
+    opacity:0.5;
+ }
+.txt{
+    font-size: 25px;
+    font-family: STXinwei;
+	color: #003b8e;
+    
+}
+/* #register{display: none;} */
+
+input{
+    margin-bottom: 20px;
+}

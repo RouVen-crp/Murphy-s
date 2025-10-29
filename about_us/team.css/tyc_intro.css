@@ -1,0 +1,44 @@
+h1{
+    text-align: center;
+    font-family: 宋体;
+    color: white;
+}
+
+#sideIntro{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width:37%;
+    height: 100%;
+}
+
+#infoBox{
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    /* background-color: aqua; */
+    font-size: 1.1em;
+    font-family: 楷体;
+    color: white;
+}
+
+#background{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width:37%;
+    height: 100%;
+    z-index: -1;
+}
+
+#mainIntro{
+    position: absolute;
+    left: 37%;
+    right: 0;
+    top:30px;
+    width:63%;
+    text-align: center;
+    font-family: 楷体;
+    font-size: 1.2em;
+    line-height: 2;
+}

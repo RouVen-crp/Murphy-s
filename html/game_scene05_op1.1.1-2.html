@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+    <script type="text/javascript" src="../JS/jquery.js"></script>
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+
+    <audio  autoplay="autoplay" loop  id="music">
+        <source src="../bgm/和Rachael对峙结束之后.mp3" autostart="true">
+    </audio>
+
+    <div>
+        <div class="calendar">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div id="A"></div>
+        <div id="a"></div>
+        <div id="b"></div>
+        <div id="c"></div>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var dialog_data = [
+            "什么？仿生人呢！？",
+            "你第一反应是家里遭贼了，但是紧接着你发现窗户大开着，而最珍贵的记忆棒和保温箱却还好好的放在客厅最显眼的位置……",
+            "正在你愣神的时候，警笛大作……",
+            "接下来的一切都如梦似幻……",
+            "你被带去警局审问，但是这件事肯定不仅仅只有警察插手…… ",
+            "联想到警局里见到的那些西装革履的上等人，你很清楚这是公司的人……",
+            "你在审讯中尽力隐藏对你不利的信息，希望公司能放你一马……",
+            "但或许是因为Jill记忆体的存在，似乎并没有人在意你说了什么……",
+            "警察还是避之不及地把你释放了……",
+            "你知道这是什么意思，所以你沉默着离开了审讯室",
+            "你知道的太多了，也太详细了，你不应该说那么多的……",
+            "这次恐怕凶多吉少了……",
+            "你身上没有任何武器，你也没有能够得上这次事件的人脉",
+            "你猜测也许是你买的仿生人出现了严重的安全事故，严重到公司不择一切手段也要掩盖过去……",
+            "所以当你离开警局看见公司的车时，你只能掉头就跑……",
+            "但是这次，你选错了对手。眼前一黑…你没有再醒来",
+        ];
+
+        var speaker_data = [
+            "Gillian","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）",
+            "（旁白）","（旁白）","（旁白）","Gillian","（旁白）","（旁白）","（旁白）","（旁白）",
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+
+        function nextScene() {
+            location.assign("game_end4.html"); 
+        }
+        var picture_order = [
+        "Gillian","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）",
+            "（旁白）","（旁白）","（旁白）","Gillian","（旁白）","（旁白）","（旁白）","（旁白）",
+        ];
+        var background_order = [
+        "家","家","家","（旁白）","（旁白）","日出","日出",
+            "日出","日出","日出","日出","日出","日出","日出","日出","日出",
+        ];
+        makeAchi(3);
+        function playSound(){
+            var audio=document.getElementById("music");
+            if(audio.paused) {  
+                audio.load;     
+                audio.play(); 
+            }
+        }
+        //调用
+        window.onclick=function () {
+            playSound();
+        }
+    </script>
+</body>
+
+</html>

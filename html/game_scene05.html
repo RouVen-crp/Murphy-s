@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+    <script type="text/javascript" src="../JS/jquery.js"></script>
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+    <audio  autoplay="autoplay" loop  id="music">
+        <source src="../bgm/main_theme B.mp3" autostart="true">
+    </audio>
+    <!-- 背景图片 -->
+    <div>
+        <img src="../image/scene.png" class="backgroundImg" draggable="false">
+    </div>
+
+    <div>
+        <div class="calendar calendar1">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div id="A"></div>
+        <div class="text_box" onclick="nextDialog();pic();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <img class="change" src="../image/stair.gif">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // 对话内容
+        var dialog_data = [
+            "事实上，你越来越害怕回到家里面对Jill……",
+            "家中无时不刻都在洋溢着的“幸福”气氛已经快要让你窒息。",
+            "这一个月来你们甚至没有哪怕一次意见不合……仿生人是不会违抗主人的命令的。",
+            "甚至它已经在一个月的相处中，越来越了解你的需求……",
+            "它越来越是你心目中的那个完美的Jill……",
+            "想到这一点，你的内心充斥着迷茫……",
+
+            "这绝不是我的Jill……它是一个完美的“人”，但我需要的不是完美。",
+            "它知道我的一切，它也知道Jill的一切，但它什么也不在乎。",
+            "这招对我没用……",
+            "（……地面无动于衷……）",
+
+            "它根本就是假的，再像真的，仿生人就是仿生人……只是一段程序……",
+            "但我难道能再次失去Jill？……",
+            "程序，程序！也许我们都是一段程序，这就是个骗局！",
+            "你深深的感到自己进入了死胡同，不能再继续这样无谓的思考下去了。你的脑子真的像微波炉里的鸡蛋一样了……",
+            "于是，你决定……"
+        ];
+        // 对话对应的speaker名，觉得不需要可以打空格
+        var speaker_data = [
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "Gillian",
+            "Gillian",
+            "Gillian",
+            "（旁白）",
+            "Gillian",
+            "Gillian",
+            "Gillian",
+            "（旁白）",
+            "（旁白）",
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+        var f=0;
+        function nextScene() {
+            location.assign("game_scene05_option.html"); //载入的下一个场景名
+        }
+        var picture_order = [
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "（旁白）",
+            "Gillian",
+            "Gillian",
+            "Gillian",
+            "（旁白）",
+            "Gillian",
+            "Gillian",
+            "Gillian",
+            "（旁白）",
+            "（旁白）",
+        ];
+        function playSound(){
+            var audio=document.getElementById("music");
+            if(audio.paused) {  
+                audio.load;     
+                audio.play(); 
+            }
+        }
+        //调用
+        window.onclick=function () {
+            playSound();
+        }
+    </script>
+</body>
+
+</html>

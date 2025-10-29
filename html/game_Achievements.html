@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="../CSS/font_define.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/mainmenu.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/achievement.css">
+
+    <script src="../JS//jquery-3.6.0.min.js"></script>
+    <script src="../JS/game_event.js"></script>
+    <title>成就</title>
+</head>
+
+<body onselectstart="return false;" onload="achiShow()">
+    <div id="background">
+
+        <div id="box">
+
+            <div class="option" id="go_back" onclick="go_mainMenu()">返回</div>
+
+            <div id="achievement">
+                <div class="achievement" id="achievement0">
+                    <img src="../image/hiddenach.jpg" width="50px" height="50px" id="img0">
+                    <div class="achievement_name">如此陈朽！</div>
+                    <hr>
+                    <div class="achievement_condition" id="ach_con0"></div>
+                    <div class="achievement_discription" id="ach_dcp0"></div>
+                </div>
+                <div class="achievement" id="achievement1">
+                    <img src="../image/hiddenach.jpg" width="50px" height="50px" id="img1">
+                    <div class="achievement_name">成全！</div>
+                    <hr>
+                    <div class="achievement_condition" id="ach_con1"><br></div>
+                    <div class="achievement_discription" id="ach_dcp1"></div>
+                </div>
+                <div class="achievement" id="achievement2">
+                    <img src="../image/hiddenach.jpg" width="50px" height="50px" id="img2">
+                    <div class="achievement_name">沙漠孤狼</div>
+                    <hr>
+                    <div class="achievement_condition" id="ach_con2"></div>
+                    <div class="achievement_discription" id="ach_dcp2"></div>
+                </div>
+                <div class="achievement" id="achievement3">
+                    <img src="../image/hiddenach.jpg" width="50px" height="50px" id="img3">
+                    <div class="achievement_name">GAME OVER</div>
+                    <hr>
+                    <div class="achievement_condition" id="ach_con3"></div>
+                    <div class="achievement_discription" id="ach_dcp3"></div>
+                </div>
+                <div class="achievement" id="achievement4">
+                    <img src="../image/hiddenach.jpg" width="50px" height="50px" id="img4">
+                    <div class="achievement_name">记忆复苏</div>
+                    <hr>
+                    <div class="achievement_condition" id="ach_con4"></div>
+                    <div class="achievement_discription" id="ach_dcp4"></div>
+                </div>
+                <div class="achievement" id="achievement5">
+                    <img src="../image/hiddenach.jpg" width="50px" height="50px" id="img5">
+                    <div class="achievement_name">不自量力</div>
+                    <hr>
+                    <div class="achievement_condition" id="ach_con5"></div>
+                    <div class="achievement_discription" id="ach_dcp5"></div>
+                </div>
+                <div class="achievement" id="achievement6">
+                    <img src="../image/hiddenach.jpg" width="50px" height="50px" id="img6">
+                    <div class="achievement_name">遇见心软的神</div>
+                    <hr>
+                    <div class="achievement_condition" id="ach_con6"></div>
+                    <div class="achievement_discription" id="ach_dcp6"></div>
+                </div>
+                <div class="achievement" id="achievement7">
+                    <img src="../image/hiddenach.jpg" width="50px" height="50px" id="img7">
+                    <div class="achievement_name">觉醒自我意识</div>
+                    <hr>
+                    <div class="achievement_condition" id="ach_con7"></div>
+                    <div class="achievement_discription" id="ach_dcp7"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function achiShow() {
+            var current_user = localStorage.getItem("__currentUser.load");
+            var current_achi = current_user + ".achi";
+            let achi_arr = JSON.parse(localStorage.getItem(current_achi));
+            var ach = -1
+            for (var i = 0; i < 14; i++) {
+                if (achi_arr[i] == 1) {
+                    ach = i;
+                    checkAchi(ach);
+                }
+            }
+        }
+        function checkAchi(ach) {
+            switch (ach) {
+                case 0:
+                    document.getElementById("img0").src = "../image/ach0.png";
+                    document.getElementById("ach_con0").innerHTML = "选择拒绝仿生人";
+                    document.getElementById("ach_dcp0").innerHTML = "你不像是来自第35个百年的当代人";
+                    break;
+                case 1:
+                    document.getElementById("img1").src = "../image/ach1.png";
+                    document.getElementById("ach_con1").innerHTML = "和max谈完选择不再纠结于仿生人";
+                    document.getElementById("ach_dcp1").innerHTML = "Just let her go!";
+                    break;
+                case 2:
+                    document.getElementById("img2").src = "../image/ach2.png";
+                    document.getElementById("ach_con2").innerHTML = "“杀”了JILL";
+                    document.getElementById("ach_dcp2").innerHTML = "不愧是你，向来拎得清";
+                    break;
+                case 3:
+                    document.getElementById("img3").src = "../image/ach3.png";
+                    document.getElementById("ach_con3").innerHTML = "噶了";
+                    document.getElementById("ach_dcp3").innerHTML = "哥们哥们，下次做决定前，咱别再冲动了";
+                    break;
+                case 4:
+                    document.getElementById("img4").src = "../image/ach4.png";
+                    document.getElementById("ach_con4").innerHTML = "记起火星的事";
+                    document.getElementById("ach_dcp4").innerHTML = "仿生人不可信！";
+                    break;
+                case 5:
+                    document.getElementById("img5").src = "../image/ach5.png";
+                    document.getElementById("ach_con5").innerHTML = "尝试反击Rachael却失败了";
+                    document.getElementById("ach_dcp5").innerHTML = "Rachael的力量可比人类恐怖多了！";
+                    break;
+                case 6:
+                    document.getElementById("img6").src = "../image/ach6.png";
+                    document.getElementById("ach_con6").innerHTML = "Rachael放了男主";
+                    document.getElementById("ach_dcp6").innerHTML = "你的善良救了你一命！";
+                    break;
+                case 7:
+                    document.getElementById("img7").src = "../image/ach7.png";
+                    document.getElementById("ach_con7").innerHTML = "听见戏外人";
+                    document.getElementById("ach_dcp7").innerHTML = "戏里戏外，当真分得清？";
+                default:
+                    break;
+            }
+        }
+        /*if (localStorage.getItem('Ach0') == 0) {
+            document.getElementById("img0").src = "../image/ach0.png";
+            document.getElementById("ach_con0").innerHTML = "选择拒绝仿生人";
+            document.getElementById("ach_dcp0").innerHTML = "你不像是来自第35个百年的当代人";
+        }
+        if (localStorage.getItem('Ach1') == 1) {
+            document.getElementById("img1").src = "../image/ach1.png";
+            document.getElementById("ach_con1").innerHTML = "和max谈完选择不再纠结于仿生人";
+            document.getElementById("ach_dcp1").innerHTML = "Just let her go！";
+        }
+        if (localStorage.getItem('Ach2') == 2) {
+            document.getElementById("img2").src = "../image/ach2.png";
+            document.getElementById("ach_con2").innerHTML = "“杀”了JILL";
+            document.getElementById("ach_dcp2").innerHTML = "不愧是你，向来拎得清";
+        }
+        if (localStorage.getItem('Ach3') == 3) {
+            document.getElementById("img3").src = "../image/ach3.png";
+            document.getElementById("ach_con3").innerHTML = "噶了";
+            document.getElementById("ach_dcp3").innerHTML = "哥们哥们，下次做决定前，咱别再冲动了";
+        }
+        if (localStorage.getItem('Ach4') == 4) {
+            document.getElementById("img4").src = "../image/ach4.png";
+            document.getElementById("ach_con4").innerHTML = "记起火星的事";
+            document.getElementById("ach_dcp4").innerHTML = "仿生人不可信！";
+        }
+        if (localStorage.getItem('Ach5') == 5) {
+            document.getElementById("img5").src = "../image/ach5.png";
+            document.getElementById("ach_con5").innerHTML = "尝试反击Rachael却失败了";
+            document.getElementById("ach_dcp5").innerHTML = "Rachael的力量可比人类恐怖多了！";
+        }
+        if (localStorage.getItem('Ach6') == 6) {
+            document.getElementById("img6").src = "../image/ach6.png";
+            document.getElementById("ach_con6").innerHTML = "Rachael放了男主";
+            document.getElementById("ach_dcp6").innerHTML = "你的善良救了你一命！";
+        }
+        if (localStorage.getItem('Ach7') == 7) {
+            document.getElementById("img7").src = "../image/ach7.png";
+            document.getElementById("ach_con7").innerHTML = "听见戏外人";
+            document.getElementById("ach_dcp7").innerHTML = "戏里戏外，当真分得清？";
+        }
+        if (localStorage.getItem('Ach8') == 8) {
+            document.getElementById("img8").src = "../image/";
+            document.getElementById("ach_con8").innerHTML = "";
+            document.getElementById("ach_dcp8").innerHTML = "";
+        }*/
+
+    </script>
+
+</body>
+
+</html>

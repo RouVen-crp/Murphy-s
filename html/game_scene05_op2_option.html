@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+        <style>
+            .gameoption3{
+                position: absolute;
+                top:47%;
+                width:40%;
+                height:50px;
+                left:30%;
+                font-size: 20px;
+                opacity: 0.8;
+            }
+        </style>
+
+        <script src="../JS/game_event.js"></script>
+        <title>RE:re</title>
+    </head>
+
+    <body onselectstart="return false;" style="overflow:hidden;background:#000; color:#FFF;">
+
+        <div>
+            <img src="../image/game.gif" class="backgroundImg" draggable="false">
+        </div>
+        <button class="last_dialog" onclick="lastDialog_for_option();" title="回溯"></button>
+        <div>
+            <div class="gameoption_box">
+                <button class="gameoption1" onclick="option1()">能天使单核打法术大师<div class="dot"></div></button>
+                <button class="gameoption3" onclick="option2()">快踩黑块<div class="dot"></div></button>
+                <button class="gameoption2" onclick="quit()">算了，还是不玩了<div class="dot"></div></button>
+            </div>
+        </div>  
+        <script>
+            function option1(){
+                location.assign("../minigame/mini-game1/game.html"); 
+            }
+            function option2(){
+                location.assign("../minigame/mini-game2/game.html"); 
+            }
+            function lastDialog_for_option(){
+                window.history.go(-1);
+            }
+            function quit(){
+                location.assign("./game_scene05_op2-2.html");
+            }
+        </script> 
+    </body>
+</html>

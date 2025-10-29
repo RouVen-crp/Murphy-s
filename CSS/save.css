@@ -1,0 +1,110 @@
+.backgroundImg{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position: center;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    left: 10%;
+    right: 10%;
+    top: 0;
+    width: 80%;
+    height: 93%;
+    z-index: -1;
+}
+p{
+    text-align: center;
+    margin: 10px auto;
+    width: max-content;
+    color: white;
+    font-size: 1.5vw;
+    text-decoration: none;
+}
+.page {
+    margin: 0 auto;
+    height: 20%;
+    width: 10%;
+    position: relative;
+    margin-top: 10%;
+    margin-left:41.3%;
+    /*border: 3px solid red;*/
+}
+
+div.load {
+    color: white;
+    margin: 0 0 15%;
+    height: 20%;
+    width: 170%;
+    border: 3px solid rgb(255, 255, 255);
+}
+
+div.load:hover {
+    cursor: pointer;
+}
+
+div.pagebar {
+    margin: 0 auto;
+    width: 564px;
+    height: 69px;
+    position: relative;
+    top: 178px;
+    /*border: 2px solid gold;*/
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination div {
+    color: black;
+    float: left;
+    padding: 25px 42px;
+    text-decoration: none;
+}
+
+.pagination div.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination div:hover:not(.active) {
+    background-color: #ddd;
+    cursor: pointer;
+}
+.home{
+    
+    background-image: url("../image/back1.png");
+    z-index: 1;
+    position: absolute;
+    top: 81%;
+    right: 48%;
+    width: 5%;
+    height: 7%;
+    line-height: 0%;
+    padding: 0;
+    
+    background-size: 100% 100%;
+}
+.home:hover {
+    background-image: url("../image/back2.png");
+    cursor: pointer;
+}
+.back{
+    
+    background-image: url("../image/back3.png");
+    z-index: 1;
+    position: absolute;
+    top: 81%;
+    right: 56%;
+    width: 5%;
+    height: 7%;
+    line-height: 0%;
+    padding: 0;
+    
+    background-size: 100% 100%;
+}
+.back:hover {
+    background-image: url("../image/back4.png");
+    cursor: pointer;
+}

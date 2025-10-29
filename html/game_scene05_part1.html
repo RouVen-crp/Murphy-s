@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+
+    <!-- 背景图片 -->
+    <div>
+        <img src="../image/scene.jpg" class="backgroundImg" draggable="false">
+    </div>
+
+    <div>
+        <div class="calendar calendar1">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();">回溯</button>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // 对话内容
+        var dialog_data = [
+            "喂",
+            "你一言不发...",
+            "怎么了？干嘛不说话？",
+            "............",
+            "不会又是Jill那事吧...",
+            "Max像是听见了你的心声",
+            "别再骗自己了...",
+            "仿生人根本就不是真的，我已经都见过很多悲剧了",
+            "你还不如...算了，老是跟你说这个，我估计你也烦了",
+            "我知道Jill在你心里有多么的不可替代，你再想想吧...",
+            "我言尽于此",
+            "嘟嘟嘟...",
+            "你与Jill从相识相知到相爱，Max一直都在...",
+            "Gillian，或许你真的该放手了",
+            "放过她也放过自己...",
+            "在沉默中，你拨通了泛美科技公司的电话...",
+            "您好，请问有什么可以帮您？",
+            "我想申请退回仿生人服务",
+            "说出来的那一刻，你感到久违的轻松...",
+            "先生您好，这边请您考虑清楚哈",
+            "仿生人一经退回重置不会再次发放，即使您再次购买也不会是原来的那一个了哈",
+            "你张了张嘴，还没来得及开口...",
+            "如果您确定要退回的话，我们这边就给您讲一下操作流程哈",
+            "……在耳边找到凸起……从后脑弹出的地方取出记忆棒……损坏……不负责……",
+            "……竟然要我亲手“杀”掉她……",
+            "听着客服公式化，流程化的淡漠语气，你再一次陷入了恍惚...",
+            "这一切就是一场金钱交易罢了，仿生人不过是商品，是“七天无理由退换”...",
+            "人们在其上寄托的情感，也不过是公司和客户各取所需罢了",
+            "你挂断了电话，夹紧了大衣，在夜幕中继续前进...",
+        ];
+        // 对话对应的speaker名，觉得不需要可以打空格
+        var speaker_data = [
+            "Max", "（旁白）", "Max", "（旁白）", "Max", "（旁白）", "Max", "Max", "Max", "Max", "Max", "（旁白）", "（旁白）", "Gillian", "Gillian",
+            "（旁白）", "（客服）", "Gillian", "（旁白）", "（客服）", "（客服）", "（旁白）", "（客服）", "（客服）",
+            "Gillian", "（旁白）", "（旁白）", "（旁白）", "（旁白）",
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+
+        function nextScene() {
+            location.assign("game_scene05_part1option.html"); //载入的下一个场景名
+        }
+
+        localStorage.setItem('Ach2','1');
+
+    </script>
+</body>
+
+</html>

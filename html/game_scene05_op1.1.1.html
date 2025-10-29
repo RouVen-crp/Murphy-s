@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+    <script type="text/javascript" src="../JS/jquery.js"></script>
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+
+    <div>
+        <img src="../image/homesad.gif" class="backgroundImg" draggable="false">
+    </div>
+
+    <div>
+        <div class="calendar">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div id="A"></div>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var dialog_data = [
+            "如果从Jill的正后方看去，现在或许能够仔细地看到仿生人的脑内构造……",
+            "你为你冒出的这个想法感到战栗不已……",
+            "一种恐惧缠绕着你，从机器人出现的年代开始就存在于人类世界中的余毒……",
+            "你害怕仿生人，这样一种全方位都优于人类的人造物种……",
+            "或许是出于一种进化的本能，你感到了恐惧……",
+            "你看着坐在沙发上一动不动的Jill，你清楚的知道她的握力是你的数倍",
+            "在南门二的小行星带，仿生人作为工作机器以一种惊人的速度磨损并被更换……",
+            "你清楚的知道，她可以跳起来，在半秒内扭断你的颈椎，以最高效的方式使一个人类非自愿的解体",
+            "你的第六感在警示着你，不能相信仿生人……你模糊的记起小时的一些事，下定了决心",
+            "我还是不能信任仿生人……",
+            "你过去曾经在这个仿生人身上寄托过数不尽的情感……",
+            "但那时因为当时你太冲动了，你还没从Jill的死中冷静下来",
+            "你已经想明白了……",
+            "是时候结束这一切了，这不过是一场昂贵的美梦……",
+            "你轻轻取出了那个蓝色的合金棒，把Jill放倒在沙发上，并用手握住了记忆棒",
+            "在最后把它塞进保温箱之前，你拿着它回味了一遍过去的两个月，权当是最后的告别",
+        ];
+
+        var speaker_data = [
+            "（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）",
+            "（旁白）","Gillian","（旁白）","（旁白）","（旁白）","Gillian","（旁白）","（旁白）",
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+
+        function nextScene() {
+            location.assign("game_scene05_op1.1.1-1.html"); 
+        }
+        var picture_order = [
+        "（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）",
+            "（旁白）","Gillian","（旁白）","（旁白）","（旁白）","Gillian","（旁白）","（旁白）",
+        ];
+        makeAchi(2);
+    </script>
+</body>
+
+</html>

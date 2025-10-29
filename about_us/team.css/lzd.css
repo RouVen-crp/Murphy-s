@@ -1,0 +1,56 @@
+body{
+    background-image: url("../images/lzd装饰.jpg");
+    background-attachment: fixed; 
+    background-size: cover;
+    background-position: center center;
+}
+.box2{
+    width: 100%;
+    height: 400px;
+}
+.box3,.box4{
+    width: 100%;
+    height: 200px;
+}
+.icon{
+    width: 200px;
+    height:200px;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    margin: auto;
+    top:150px;
+    overflow: hidden;
+}
+h1,h2,p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+.box3>p{
+    font-size: 1.25em;
+}
+strong{
+    color: aqua;
+}
+.lzd_intro{
+    position: absolute;
+    top:10%;
+    text-align: center;
+    width:100%;
+    font-size: 1.25em;
+}
+#lzd_chat{
+    position: absolute;
+    padding-bottom: 100px;
+    width:40%;
+    left:30%;
+    text-align:left;
+}
+#lzd_chat>p{
+    text-align: left;
+}
+
+a:hover{
+    opacity: 0.7;
+    transition:opacity o.3s;
+}

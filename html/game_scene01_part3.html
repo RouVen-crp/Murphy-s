@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+
+    <div>
+        <img src="../image/bar.png" class="backgroundImg" draggable="false">
+    </div>
+
+    <div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var dialog_data = [
+            "从那之后就是无法回想的噩梦...",
+            "她的离去不代表结束，而代表一个悲伤的故事的开始..."
+        ];
+
+        var speaker_data = [
+            "（旁白）",
+            "（旁白）"
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+
+        function nextScene() {
+            location.assign("game_scene02.html");
+        }
+
+    </script>
+</body>
+
+</html>

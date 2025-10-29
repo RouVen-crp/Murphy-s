@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+    <script type="text/javascript" src="../JS/jquery.js"></script>
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+    <audio  autoplay="autoplay" loop  id="music">
+        <source src="../bgm/游戏厅.mp3" autostart="true">
+    </audio>
+    <div>
+        <img src="../image/game.gif" class="backgroundImg" draggable="false">
+    </div>
+
+    <div>
+        <div class="calendar calendar1">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div id="A"></div>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var dialog_data = [
+            "……这些游戏你早就玩过很多次了，并且今天你本来也没什么心情体验……",
+            "于是你结束了游戏环节，转身准备出门……",
+            "门呢？？",
+            "没错，游戏厅的大门没了！但是这怎么可能呢？",
+            "你紧张的退回了游戏机附近……",
+            "难道是某种幻象……是我的仇家吗……",
+            "这时你隐约听见某种声音，似乎来自很高的地方……绝对比游戏厅的屋顶高",
+            "虽然那不是任何一种你会的语言，但奇怪的是你却能够理解他的表意……",
+            "……为什么把游戏厅场景到其他场景的超链接都删掉还是会有这个bug啊？",
+            "决定了！重新复制粘贴一边代码！",
+            "站在游戏机旁边的你突然视线一阵模糊……",
+        ];
+
+        var speaker_data = [
+            "（旁白）","（旁白）","Gillian","（旁白）","（旁白）","Gillian","（旁白）","（旁白）","戏外人","戏外人","（旁白）",
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+
+        function nextScene() {
+            location.assign("game_scene05_op2-3.html"); 
+        }
+        var picture_order = [
+            "（旁白）","（旁白）","Gillian","（旁白）","（旁白）","Gillian","（旁白）","（旁白）","戏外人","戏外人","（旁白）"
+        ];
+        makeAchi(7);
+        function playSound(){
+            var audio=document.getElementById("music");
+            if(audio.paused) {  
+                audio.load;     
+                audio.play(); 
+            }
+        }
+        //调用
+        window.onclick=function () {
+            playSound();
+        }
+    </script>
+</body>
+
+</html>

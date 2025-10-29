@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+    <script type="text/javascript" src="../JS/jquery.js"></script>
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+    
+    <div>
+        <img src="../image/homesad.gif" class="backgroundImg" draggable="false">
+    </div>
+
+    <div>
+        <div class="calendar calendar2">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div id="A"></div>
+        <div id="B"></div>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <img class="change" src="../image/home.gif">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var dialog_data = [
+            "深夜，你在床上翻来覆去，彻夜难眠……",
+            "受不了漫漫长夜的寂寥，耳边突然回响起仿生人公司打来的电话。",
+            "仿生人吗",
+            "你拿起了电话：",
+        ];
+        var speaker_data = [
+            "（旁白）",
+            " ",
+            " Gillian",
+            " ",
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+        var f=0;
+        function nextScene() {
+            location.assign("game_scene03_option.html");
+        }
+        var picture_order = [
+            "（旁白）",
+            " ",
+            "Gillian",
+            " ",
+        ];
+        function playSound(){
+            var audio=document.getElementById("music");
+            if(audio.paused) {  
+                audio.load;     
+                audio.play(); 
+            }
+        }
+        //调用
+        window.onclick=function () {
+            playSound();
+        }
+    </script>
+</body>
+
+</html>
