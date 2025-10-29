@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+    <script type="text/javascript" src="../JS/jquery.js"></script>
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+
+    <audio  autoplay="autoplay" loop  id="music">
+        <source src="../bgm/与Rachael对峙.mp3" autostart="true">
+    </audio>
+
+    <div>
+        <div class="calendar">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div id="A"></div>
+        <div id="a"></div>
+        <div id="b"></div>
+        <div id="c"></div>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var dialog_data = [
+            "疲惫的坐起身来，你转身离开卧室去洗漱，昨天的睡眠非常糟糕……",
+            "突然！你看到客厅中有一个站立的身影，似乎穿着一件熟悉的大衣……",
+            "我什么都会给你的，别冲动朋友，我保证！",
+            "你一边喊叫着迷惑对手的言语，一边往藏匿你干活的“工具”的地方摸去，准备给这个小蟊贼来下狠的……但是你什么都没找到",
+            "这时，那个身影转身面向你，并且开口道……",
+            "是我，别紧张",
+            "这下你看到了，那个人影长着Jill的脸，并且身上挂着你的武器……",
+            "只是……她的发色和Jill天差地别……还有那些妆容……",
+            "并且，她虽然长着Jill的模样，但言行举止中的孤傲却不像你认识的任何一个人……",
+            "你不明白发生了什么，在惊惧中你困惑地想到：难道是我的仿生人出了问题？",
+            "我并不是你认识的那个Jill，如果你在意的话，可以叫我Rachael",
+            "不论如何，你的私人领地被入侵了，你沉默地寻找着反击的机会……",
+            "如果这真的是个仿生人的话……她的先进程度恐怕超出你的想象……",
+            "这样的仿生人应该都在环境恶劣的外星殖民地才对……",
+            "只有那里才会有这个“需求”",
+            "但是地球上理应没有这种仿生人的……像Jill这种，理应都是旧式的",
+            "你不禁想起自己还小时的一件事…那是在火星的时候……",
+            "据说是仿生人过于先进，意外失控了……",
+            "通过了人性测试，骗过了所有人。但是它从没真正见过人类，所以没有把握好力道……",
+            "不过，随着仿生人业务从火星开展到地球，那些传闻也渐渐销声匿迹",
+            "你看着Jill……不，现在是Rachael的脸，不知该如何是好",
+            "你的命运现在掌握在她的手中……",
+            "最终，你决定试探一下……",
+            "你……究竟是谁？",
+            "说过了，我是Rachael。不过是借你小女友身体一用罢了",
+            "说着，她打开后脑，似乎要从里面取出什么东西……",
+            "你觉得这是一个绝佳的机会，于是你双脚发力一蹬，朝Rachael冲了上去",
+            "但在一瞬间你已经天旋地转倒在了地上，弓着腰奋力吸气试图缓解疼痛……",
+            "你……",
+            "我就顺手做件好事，把这根记忆棒拿走咯……",
+            "你已经顾不上记忆体的事情了……",
+            "很明显，这是一个觉醒自我的仿生人。都市传说是真的，但你不想做这个见证人",
+            "给你个建议，下次别再把仿生人当成人类了",
+            "你不像是第3个千年的人类，居然会有人对仿生人共情，真是可悲……",
+            "Rachael举起了枪对准了你……",
+            "此时此刻再看到Jill的脸，你只有痛苦…",
+            "“藏在她身体里的竟然是一只怪物，而我却还……”你这样想着",
+            "你觉得自己必死无疑……为什么不呢？杀了自己，还能减少被追捕到的概率……",
+            "你想起了和真正的Jill的回忆……",
+            "你在她生日那天领回来一只布偶猫，毛茸茸泛着光泽。你想她要是看到一定会很高兴…家里啤酒永远充足，并且永远是她最爱喝的那款…",
+            "你独自一人去了她说一定要去一次的奈良，想着究竟是有着什么样的魔力让她如此着迷。樱花飘落的时候你按下了快门，想着如果她在树下会不会更美…",
+            "闭眼品味着这些美好的回忆，遗憾、痛苦、恐惧接连向你袭来……",
+            "…砰！（枪声）…",
+            "…………",
+            "……………………",
+            "待会不论谁问，都说不知道",
+            "你睁开眼……屋里除了一扇倒霉的窗户，什么都没有……",
+            "喂……",
+            "这又算什么？",
+            "正在你愣神的时候，警笛大作……",
+            "接下来的一切都如梦似幻……",
+            "你被带去警局，却又被飞速保释，领到一笔足以安度后半生的神秘资金……",
+            "在审讯中，你尽力隐藏对你不利的信息，希望公司能放你一马……",
+            "半真半假之间，或许是公司也为这件事忙的焦头烂额，或许是你真的看起来有那么真诚……",
+            "很幸运地，你被打发走了。",
+            "联想到警局里见到的那些西装革履的上等人，你很清楚这是什么意思……",
+            "这么大一笔封口费，我还真是卷入了不得了的事情……",
+            "你很清楚，在这座城里，公司是不容违抗的",
+            "沉默，是你在这座城里学会的最宝贵的“品德”",
+            "总之，什么仿生人，你是再也不想和它们扯上关系了……",
+            "但是你有时还会忍不住去想，当时那个仿生人Rachael为什么放过自己离开了",
+            "Rachael究竟去哪了，去干什么，最后又怎么样了呢？",
+            "你环顾四周，思考着是不是自己身边全是仿生人，其实自己就是最后一个人类了呢？",
+            "你哆嗦了一下，不愿再细想……",
+            "反正我也分不出来，哈哈……无所谓了……仿生人说不定还更好呢……",
+            "就这样吧……你每天会忘掉成百上千的事，为什么不把这一件事也给忘了呢？",
+            "你决定彻底忘掉这今天的一切"
+        ];
+
+        var speaker_data = [
+            "（旁白）","（旁白）","Gillian","（旁白）","（旁白）","Jill","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）",
+            "（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）",
+            "（旁白）","Gillian","Rachael","（旁白）","（旁白）","（旁白）","Gillian","Rachael","旁白","（旁白）","Rachael",
+            "Rachael","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）",
+            "（旁白）","（旁白）","Rachael","（旁白）","Gillian","Gillian","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）",
+            "Gillian","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","Gillian","Gillian",
+            "（旁白）",
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+
+        function nextScene() {
+            location.assign("game_end3.html"); 
+        }
+        var picture_order = [
+        "（旁白）","（旁白）","Gillian","（旁白）","（旁白）","Jill","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","Rachael",
+            "（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）",
+            "（旁白）","Gillian","Rachael","（旁白）","（旁白）","（旁白）","Gillian","Rachael","（旁白）","（旁白）","Rachael",
+            "Rachael","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）",
+            "（旁白）","（旁白）","Rachael","（旁白）","Gillian","Gillian","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）",
+            "Gillian","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","Gillian","Gillian",
+            "（旁白）",
+        ];
+        var background_order = [
+        "家","家","家","家","家","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael",
+            "Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael",
+            "Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael",
+            "Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","Rachael","（旁白）",
+            "（旁白）","（旁白）","（旁白）","家","家","家","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","（旁白）","日出",
+            "日出","日出","日出","日出","日出","日出","日出","日出","日出","日出",
+            "（旁白）",
+        ];
+        makeAchi(4);
+        makeAchi(5);
+        makeAchi(6);
+        function playSound(){
+            var audio=document.getElementById("music");
+            if(audio.paused) {  
+                audio.load;     
+                audio.play(); 
+            }
+        }
+        //调用
+        window.onclick=function () {
+            playSound();
+        }
+    </script>
+</body>
+
+</html>

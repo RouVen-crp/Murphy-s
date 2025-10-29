@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../CSS/save.css">
+    <title>存档界面</title>
+    
+</head>
+
+<body onload="loadShow()" style="overflow:hidden;background:#000; color:#FFF;">
+    <img src="../Image/background_of_save.png" class="backgroundImg">
+    <div class="page" id="page1" style="display: block;">
+        <div class="load" onclick="gameSave('load01')">
+            <p id="load01">空</p>
+        </div>
+        <div class="load" onclick="gameSave('load02')">
+            <p id="load02">空</p>
+        </div>
+        <div class="load" onclick="gameSave('load03')">
+            <p id="load03">空</p>
+        </div>
+        <div class="load" onclick="gameSave('load04')">
+            <p id="load04">空</p>
+        </div>
+    </div>
+    
+    <button  class="home" onclick="window.location.href='../index.html';return false">
+    <button  class="back" onclick="window.location.href='./save_and_load.html';return false">
+</body>
+<script src='../JS/save_and_load.js'></script>
+<script>
+    function showPage(str) {
+        var pages = [];
+        for (var i = 1; i < 7; i++) {
+            pages[i] = document.getElementById('page' + i);
+            pages[i].style.display = 'none';
+        }
+        document.getElementById(str).style.display = 'block';
+    }
+    function showBar(n) {
+        var pageNum = [];
+        for (var i = 1; i < 7; i++) {
+            pageNum[i] = document.getElementById('num' + i);
+            pageNum[i].className = '';
+        }
+        document.getElementById(n).className = 'active'
+    }
+    function gameSave(str) {
+        let desc = saveShow(str)
+        document.getElementById(str).innerHTML = desc
+        localStorage.setItem("temp.load", desc + str)
+        save(str, desc)
+    }
+    function saveShow(str) {
+        loc = '存档' + str.slice(-2)
+        date = (new Date()).format("yyyy/MM/dd hh:mm:ss")
+        return loc + '<br />' + date
+    }
+    function loadShow() {
+        var current_user = localStorage.getItem("__currentUser.load");
+        var current_load = current_user + ".load";
+        let load_arr = JSON.parse(localStorage.getItem(current_load));
+        for (var i = 0; i < 24; i++) {
+            let desc = load_arr[i].description;
+            let str = "load" + pad(i + 1, 2);
+            document.getElementById(str).innerHTML = desc
+        }
+    }
+    function pad(m, n) {
+        var len = m.toString().length;
+        while (len < n) {
+            m = "0" + m
+            len++
+        }
+        return m
+    }
+    //参考的
+    Date.prototype.format = function (fmt) {
+        var o = {
+            "M+": this.getMonth() + 1, //月份
+            "d+": this.getDate(), //日
+            "h+": this.getHours(), //小时
+            "m+": this.getMinutes(), //分
+            "s+": this.getSeconds(), //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        }
+        for (var k in o) {
+            if (new RegExp("(" + k + ")").test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ?
+                    (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            }
+        }
+        return fmt;
+    }
+</script>
+
+</html>

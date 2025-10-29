@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="./CSS/mainmenu.css">
+        <link rel="stylesheet" type="text/css" href="./CSS/font_define.css">
+
+        <script src="./JS/mainmenu.js"></script>
+        <title>RE:re</title>
+    </head>
+
+    <body onselectstart="return false;">
+        <audio  autoplay="autoplay" loop  id="music">
+            <source src="bgm/看着办的一段音效.mp3" autostart="true">
+        </audio>
+            <div id="gameTitle">
+                <span style=" color:rgb(0, 232, 158);">RE:</span>re
+            </div>
+
+            <div>
+                <p class="gps">&nbsp;</p>
+                <button onclick="start_game();" class="menuOptions"><span>开始游戏</span></button><br>
+                <button onclick="load_game();" class="menuOptions"><span>读取存档</span></button><br>
+                <button onclick="achievement();" class="menuOptions"><span>成就系统</span></button><br>
+                <button onclick="about_game();" class="menuOptions"><span>关于游戏</span></button><br>
+                <button onclick="about_us();" class="menuOptions"><span>关于我们</span></button>
+            </div>
+
+    </body>
+    <script type="text/javascript">
+        window.onload = function(){
+                 setInterval("toggleSound()",100);
+            }
+    
+        function toggleSound() {
+                    var music = document.getElementById("music");//获取ID  
+                        
+                    if (music.paused) { //判读是否播放  
+                        music.paused=false;
+                        music.play(); //没有就播放 
+                    }    
+            }
+    </script>
+</html>

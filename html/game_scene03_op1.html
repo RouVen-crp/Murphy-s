@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+    <script type="text/javascript" src="../JS/jquery.js"></script>
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+
+    <!-- 背景图片 -->
+    <div>
+        <img src="../image/homesad.gif" class="backgroundImg" draggable="false">
+    </div>
+    <div>
+        <div class="calendar calendar2">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div id="F"></div>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // 对话内容
+        var dialog_data = [
+            "死而复生...死而复生！？你实在是太想她了，你根本无法接受失去她...（拨打泛美科技公司的电话）",
+
+        ];
+        // 对话对应的speaker名，觉得不需要可以打空格
+        var speaker_data = [
+            "（旁白）"
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+
+        function nextScene() {
+            location.assign("game_scene3.5.html"); //载入的下一个场景名
+        }
+        var picture_order = [
+            "客服",
+        ];
+    </script>
+</body>
+
+</html>

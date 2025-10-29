@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+
+        <script src="../JS/game_event.js"></script>
+        <title>RE:re</title>
+    </head>
+
+    <body onselectstart="return false;" style="overflow:hidden;background:#000; color:#FFF;">
+
+        <!-- 背景图片 -->
+        <div>
+            <img src="../image/scene.png" class="backgroundImg" draggable="false">
+        </div>
+        <button class="last_dialog" onclick="lastDialog_for_option();" title="回溯"></button>
+        <div>
+            <!-- 选项按钮 -->
+            <div class="gameoption_box">
+                <button class="gameoption1" onclick="option1()">给max打电话<div class="dot"></div></button>
+                <button class="gameoption2" onclick="option2()">去游戏厅找乐子<div class="dot"></div></button>
+            </div>
+        </div>  
+        <script>
+            function option1(){
+                location.assign("game_scene05_op1.html"); //载入的选项1
+            }
+            function option2(){
+                location.assign("game_scene05_op2.html"); //载入的选项2
+            }
+            function lastDialog_for_option(){
+                window.history.go(-1);
+            }
+        </script> 
+    </body>
+</html>

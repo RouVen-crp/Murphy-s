@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../CSS/end.css">
+        <script src="../JS/game_event.js"></script>
+        <title>RE:re</title>
+    </head>
+
+    <body onselectstart="return false;" style="overflow:hidden;background:#000; color:#FFF;">
+        <audio  autoplay="autoplay" loop  id="music">
+            <source src="../bgm/bad end A.mp3" autostart="true">
+        </audio>
+        <img class="backgroundImg" src="../image/end5.gif">
+        <img class="txt" src="../image/end5text.png">
+        <div id="t">
+            All those moments will be lost……Like tears in rain……<br>Time to die
+
+        </div>
+            <div>
+                <button onclick="go_mainMenu()" class="menuOptions"><span>返回主菜单</span></button>
+            </div>
+        </div>  
+    </body>
+    <script>
+        function playSound(){
+            var audio=document.getElementById("music");
+            if(audio.paused) {  
+                audio.load;     
+                audio.play(); 
+            }
+        }
+        //调用
+        window.onclick=function () {
+            playSound();
+        }
+    </script>
+</html>

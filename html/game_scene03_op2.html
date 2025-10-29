@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+    <script type="text/javascript" src="../JS/jquery.js"></script>
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+
+    <div>
+        <img src="../image/homesad.gif" class="backgroundImg" draggable="false">
+    </div>
+
+    <div>
+        <div class="calendar calendar2">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div id="A"></div>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var dialog_data = [
+            "仿生人永远只是程序罢了……哈！别想骗我的钱...",
+            "你倒在床上，被呕吐的感觉折磨着沉沉睡去，希望明天不会那么烂...",
+        ];
+        var speaker_data = [
+            "Gillian",
+            "（旁白）",
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+
+        function nextScene() {
+            location.assign("game_end1.html");
+        }
+
+        makeAchi(0);
+        var picture_order = [
+            "Gillian",
+            "（旁白）",
+        ];
+    </script>
+</body>
+
+</html>

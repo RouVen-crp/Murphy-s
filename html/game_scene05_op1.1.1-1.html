@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+
+    <div>
+        <div class="calendar">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // 对话内容
+        var dialog_data = [
+            "第二天...",
+        ];
+        // 对话对应的speaker名，觉得不需要可以打空格
+        var speaker_data = [
+            ""
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+
+        function nextScene() {
+            location.assign("game_scene05_op1.1.1-2.html");
+        }
+
+    </script>
+</body>
+
+</html>

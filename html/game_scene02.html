@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+    <script type="text/javascript" src="../JS/jquery.js"></script>
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge();" style="overflow:hidden;background:#000; color:#FFF;">
+    <audio  autoplay="autoplay" loop  id="music">
+        <source src="../bgm/main_theme A.mp3" >
+    </audio>
+    <audio  autoplay="autoplay" loop  id="aa">
+        <source src="../bgm/接电话音效.mp3" >
+    </audio>
+    <!-- 背景图片 -->
+    <div>
+        <img src="../image/bar_scene.gif" class="backgroundImg" draggable="false">
+    </div>
+
+    <div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div id="A"></div>
+        <div id="B"></div>
+        <div id="C"></div>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // 对话内容
+        var dialog_data = [
+            "一切都回不来了...",
+            "……………………（电话铃声）",
+            "死而复生不再是梦~~泛美仿生科技公司...",
+            "您好先生这边是泛美仿生科技公司，请问您是Gillian先生吗？",
+            "你沉默地听着，不发一言",
+            "这边检测到您近期有至亲离世，您确定是这样吗？",
+            "好的哈那么我在这里代表全体公司员工为死者送上一份哀思为生者寄托一份祝...",
+            "有话快说有屁快放！",
+            "对方似乎并不以为意，只是公式化的执行着操作",
+            "好的先生，这边是提醒您我们公司专门提供死而复生服务，通过仿生人技术...",
+            "你心下不屑地听着他的长篇大论，手上却鬼使神差的记下了公司的电话号码...",
+        ];
+
+        // 对话对应的speaker名，觉得不需要可以打空格
+        var speaker_data = [
+            "Gillian",
+            " ",
+            "（客服）",
+            "（客服）",
+            "（旁白）",
+            "（客服）",
+            "（客服）",
+            "Gillian",
+            "（旁白）",
+            "（客服）",
+            "Gillian",
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+        var f = 0;
+        var index = 0;
+        function nextScene() {
+            location.assign("game_scene03.html"); //载入的下一个场景名
+        }
+        
+
+        //在此处加图顺序（"Gillian"，"客服电话动图"，"（客服）"，"Jill","Max",不要的话填点其他如"旁白"的或" "就行)
+        var picture_order = [
+            "Gillian",
+            "客服电话动图",
+            "（客服）",
+            "（客服）",
+            "（旁白）",
+            "（客服）",
+            "（客服）",
+            "Gillian",
+            "（旁白）",
+            "（客服）",
+            "Gillian",
+        ]; 
+        
+        var music_order = [
+            "Gillian",
+            "电话",
+            "（客服）",
+            "（客服）",
+            "（旁白）",
+            "（客服）",
+            "（客服）",
+            "Gillian",
+            "（旁白）",
+            "（客服）",
+            "Gillian",
+        ]; 
+        function playSound(){
+            var audio=document.getElementById("music");
+            if(audio.paused) {  
+                audio.load;     
+                audio.play(); 
+            }
+        }
+        //调用
+        window.onclick=function () {
+            playSound();
+        }
+        
+// if(f==0){
+//     $("#A").css("opacity","1");
+//     $("#B").css("opacity","0");
+//     $("#C").css("opacity","0");
+//     f++;}
+    // function pic(){
+    // if(f==0){
+    //     $("#A").css("opacity","1");
+    //     $("#B").css("opacity","0");
+    //     $("#C").css("opacity","0");
+    // }
+    // if(f==1){
+    //     $("#C").css("opacity","1");
+    //     $("#A").css("opacity","0");
+    // }if(f==2){
+    //     $("#C").css("opacity","0");
+    //     $("#A").css("opacity","0");
+    //     $("#B").css("opacity","1");
+    // }if(f==3){
+    //     $("#B").css("opacity","1");
+    //     $("#A").css("opacity","0");
+    // }if(f==4){
+    //     $("#A").css("opacity","0");
+    //     $("#B").css("opacity","0");
+    // }if(f==5){
+    //     $("#B").css("opacity","1");
+    //     $("#A").css("opacity","0");
+    // }
+    // if(f==6){
+    //     $("#A").css("opacity","0");
+    //     $("#B").css("opacity","1");
+    // }
+    // if(f==7){
+    //     $("#B").css("opacity","0");
+    //     $("#A").css("opacity","1");
+    // }
+    // if(f==8){
+    //     $("#A").css("opacity","0");
+    //     $("#B").css("opacity","0");
+    // }
+    // if(f==9){
+    //     $("#B").css("opacity","1");
+    //     $("#A").css("opacity","0");
+    // }
+    // if(f==10){
+    //     $("#A").css("opacity","1");
+    //     $("#B").css("opacity","0");
+    // }
+    // // f++;
+    // }
+    // pic(speaker_data[dialog_id]);
+    </script>
+</body>
+
+</html>

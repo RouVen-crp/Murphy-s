@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../CSS/end.css">
+        <script src="../JS/game_event.js"></script>
+        <title>RE:re</title>
+    </head>
+
+    <body onselectstart="return false;" style="overflow:hidden;background:#000; color:#FFF;">
+        <audio  autoplay="autoplay" loop  id="music">
+            <source src="../bgm/end C.mp3" autostart="true">
+        </audio>
+        <img class="backgroundImg" src="../image/end1.png">
+        <img class="txt" src="../image/end1text.png">
+        <div id="t">
+            如果能再见一面的话……什么，你居然不想？！
+        </div>
+            <div>
+                <button onclick="go_mainMenu()" class="menuOptions"><span>返回主菜单</span></button>
+            </div>
+        </div>  
+    </body>
+    <script type="text/javascript">
+        window.onload = function(){
+                 setInterval("toggleSound()",100);
+            }
+    
+        function toggleSound() {
+                    var music = document.getElementById("music");//获取ID  
+                        
+                    if (music.paused) { //判读是否播放  
+                        music.paused=false;
+                        music.play(); //没有就播放 
+                    }    
+            }
+    </script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+
+    <div>
+        <img src="../image/game.gif" class="backgroundImg" draggable="false">
+    </div>
+
+    <div>
+        <div class="calendar calendar1">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var dialog_data = [
+            "",
+        ];
+
+        var speaker_data = [
+            "",
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+
+        function nextScene() {
+            location.assign("game_scene05_op2_option.html"); 
+        }
+
+    </script>
+</body>
+
+</html>

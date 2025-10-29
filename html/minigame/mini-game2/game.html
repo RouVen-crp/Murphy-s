@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minigame2</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .big-box{
+        width: 400px;
+        height: 700px;
+        margin: 100px auto 0;
+        border: 1px solid black;
+        position: relative;
+        overflow: hidden;
+    }
+    .box{
+        width: 400px;
+        border: 1px solid black;
+        position: absolute;
+        top: -400px;
+        display:none;
+    }
+    .box .block{
+        width: 408px;
+        /* height: 100px; */
+        overflow: hidden;
+    }
+    .box .block div{
+        width: 98px;
+        height: 98px;
+        border: 1px solid black;
+        float: left;
+    }
+    .box .block .black{
+        background: black;
+    }
+    .p{
+        width: 50px;
+        height: 50px;
+        color: #61922a;
+        font-size: 30px;
+        font-weight: 800;
+        margin: 50px auto 0;
+        display:none;
+    }
+
+    #level{
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                /* border-style: ridge; */
+            }
+            #level h1{
+                font-size: 30px;
+                padding-top: 60px;
+                padding-bottom: 150px;
+                line-height: 60px;
+                text-align: center;
+                color: rgb(236, 14, 14);
+            }
+            #level p{
+                margin: 30px auto;
+                width: 200px;
+                height: 35px;
+                line-height: 35px;
+                text-align: center;
+                background: #fff;
+                font-weight: bolder;
+                cursor: pointer;
+            }
+            #level p:hover{
+                background: pink;
+                color: #fff;
+            }
+    
+    /* .box_for_keys{
+        width: 400px;
+        height: 100%;
+        margin: 100px auto 0;
+        position: relative;
+        overflow: hidden;
+        background-color:rgb(255, 255, 255);
+        display: none;
+    }
+    .keys{
+        width: 400px;
+        height:50px;
+        margin-top: 100px;
+        background-color: rgb(255, 255, 255);
+    }
+    .keys div{
+        width:50px;
+        height:50px;
+        background-color:aqua;
+        margin-left: 40px;
+        position:relative;
+        float:left;
+    }
+    .box_for_keys p{
+        margin: 50px auto;
+        width: 200px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        background: #fff;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+    .box_for_keys p:hover{
+        background: pink;
+        color: #fff;
+    } */
+
+
+    
+</style>
+<body>
+    <audio id="mymusic" src='./music/Killer.mp3' loop></audio>
+    <div class="p">
+        0
+    </div>
+    <div class="big-box">
+        <div class="box">
+            <div class="block">
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="block">
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="block">
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+            </div>
+            <div class="block">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+            </div>
+            <div class="block">
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="block">
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="block">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+            </div>
+            <div class="block">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+            </div>
+        </div>
+        <div id="level">
+            <h1>别踩白块/快踩黑块（？）</h1>
+            <p onclick="bymouse()">经典模式</p>
+            <p onclick="bykeyboard()">mania(按键：A S K L)</p>
+            <p id="menu_music" onclick="play()">打开/关闭背景音乐(示例）</p> 
+            <p onclick="quit()">结束游戏</p>
+        </div>
+        <!-- <div class="box_for_keys">
+            <div class="keys">
+                <div class="key">key1</div>
+                <div class="key">key2</div>
+                <div class="key">key3</div>
+                <div class="key">key4</div>
+            </div>
+            <p onclick="bykeyboard()" >
+                开始游戏
+            </p>
+        </div> -->
+    </div>
+</body>
+<script>
+/*============================================================================================*/
+/* 开始
+/*============================================================================================*/	
+    // 检查是否正在播放
+    var isPlaying = false; 
+            function play() {
+            var player = document.querySelector('#mymusic');
+            if (isPlaying) {
+                // 如果正在播放, 停止播放并停止读取此音乐文件
+                player.pause();
+                player.src = '';
+                isPlaying = false; 
+            } else {
+                player.src = './music/Killer.mp3';
+                player.play();
+                isPlaying=true;
+            }
+            }
+/*============================================================================================*/
+/* 用鼠标
+/*============================================================================================*/	
+    function bymouse(){
+        
+        var box = document.querySelector(".box");
+        var p = document.querySelector(".p");
+
+        document.getElementById("level").style.display="none";
+        box.style.display="block";
+        p.style.display="block";
+
+        // 速度
+        var speed = 1;
+
+        //结束开始开关
+        var flag = false;
+
+        // 分数
+        var sum = 0;
+
+        box.removeChild(box.lastElementChild);
+        
+        var timer = setInterval( function(){
+
+            box.style.top = box.offsetTop + speed + 'px';
+            if(box.offsetTop >= 0){
+                // 判断box的子元素长度是否大于等于8
+                if(box.children.length >= 8){
+                    //删除最后一个子元素
+                    box.removeChild(box.lastElementChild);
+                }
+
+                // 获取最后一个 block
+                var lastBlock = box.children[box.children.length - 1];
+                // 获取最后一个block下的子元素
+                var haveclass = lastBlock.children;
+                var n = '';
+                for(var j = 0; j < haveclass.length; j++){
+                    // 具有black的类名就加进 n
+                    if(haveclass[j].className == 'black'){
+                        n += "black";
+                    }
+                }
+                // 判断是否具有black
+                if(n == "black"&&box.children.length==7){
+                    var choice=confirm("得分：",sum,"你漏了一个黑块\n按确定重新开始\n按取消返回菜单");
+                    if(choice==true){
+                        clearInterval(timer);
+                        box.style.top='-400px';
+                        console.log('????');
+                        p.innerHTML=0;
+                        speed=1;
+                        for(var i=0;i<3;i++){
+                            box.removeChild(box.lastElementChild);                        
+                        }
+                        bymouse();
+                    }
+                    else{
+                        clearInterval(timer);
+                        flag = true;
+                        document.getElementById("level").style.display="block";
+                        box.style.display="none";
+                        p.style.display="none";
+                        p.innerHTML = 0;
+                        for(var i=0;i<3;i++){
+                            box.removeChild(box.lastElementChild);                        
+                        }
+                    }
+                }
+                // console.log(n);
+
+                //创建新block
+                var newBlock = document.createElement("div");
+                newBlock.className = "block";
+
+                // 随机整数
+                var random = Math.floor(Math.random()*4+1);
+                for(var i = 1; i < 5; i++){
+
+                    //创建一行里面的小格子
+                    var newDiv = document.createElement("div");
+                    // console.log("i ==>" , i); // 1 2 3 4
+
+                    // 如果 i和随机数相等就为黑块
+                    if(i == random){
+                        newDiv.className = "black";
+                    }
+                    newBlock.appendChild(newDiv);
+                }
+                // 把创建的block加到box最前面
+                box.insertBefore(newBlock , box.children[0]);
+
+                // 创建新的恢复top值 100就是小块的高度，使小块无缝衔接
+                box.style.top = "-100px";
+            }
+
+        },15)
+
+            box.onclick = function(e){
+                // console.log(e.target);
+                if(!flag){
+
+                    if(e.target.className == "black"){
+                        // 删除被点击类名
+                        e.target.removeAttribute("class");
+                        // 分数自加
+                        sum++;
+
+                        // 分数追加到标签
+                        p.innerHTML = sum;
+
+                        if(speed<=2){
+                            if(sum % 3 == 0){
+                            speed += 0.5;
+                            }
+                        }else if(speed<=5){
+                            if(sum % 3 == 0){
+                            speed += 0.3;
+                            }
+                        }else{
+                            if(sum % 3 == 0){
+                            speed += 0.;
+                            }
+                        }
+
+                    }else{
+                        var choice=confirm("你踩到白块了\n按确定重新开始\n按取消返回菜单");
+                        if(choice==true){
+                            clearInterval(timer);
+                            box.style.top='-400px';
+                            // console.log('????');
+                            p.innerHTML=0;
+                            speed=1;
+                            if(box.children.length>=5){
+                                for(var i=0;i<3;i++){
+                                    box.removeChild(box.lastElementChild);                        
+                                }
+                            }
+                            bymouse();
+                        }
+                        else{
+                            clearInterval(timer);
+                            flag = true;
+                            document.getElementById("level").style.display="block";
+                            box.style.display="none";
+                            p.style.display="none";
+                            p.innerHTML = 0;
+                            if(box.children.length>=5){
+                                for(var i=0;i<3;i++){
+                                    box.removeChild(box.lastElementChild);                        
+                                }
+                            }
+                        }
+                        
+                    }
+                }else{
+                    alert("游戏结束啦，返回菜单");
+                    clearInterval(timer);
+                    flag = true;
+                    document.getElementById("level").style.display="block";
+                    box.style.display="none";
+                    p.style.display="none";
+                    p.innerHTML = 0;
+                }
+            }
+    }
+
+/*============================================================================================*/
+/* 用键盘
+/*============================================================================================*/	
+// //获取玩家输入的自定义按键
+// var keys=document.querySelector(".keys");
+// var keybox=document.querySelector(".box_for_keys");
+// var key=document.querySelector(".key");
+// var k=[];
+
+// function getkeys(){
+//     document.getElementById("level").style.display="none";
+//     keybox.style.display="block";
+//     for(var i=0;i<4;i++){
+//         document.onkeydown=function(event){
+//             k[i]=event.key;
+//             key.innerHTML=event.key;
+//             }
+//     }      
+// }
+
+    function bykeyboard(){
+        var box = document.querySelector(".box");
+        var p = document.querySelector(".p");
+        
+        document.getElementById("level").style.display="none";
+        box.style.display="block";
+        p.style.display="block";
+
+        // 速度
+        var speed = 1;
+
+        //结束开始开关
+        var flag = false;
+
+        // 分数
+        var sum = 0;
+        var sum_bp=0;//分数备份
+
+        //记录按键判定情况
+        var mark;
+
+        var timer = setInterval( function(){
+
+            box.style.top = box.offsetTop + speed + 'px';
+
+            if(box.offsetTop >= 0 ){
+                // 判断box的子元素长度是否大于等于9
+                if(box.children.length >= 9){
+                    //删除最后一个子元素
+                    box.removeChild(box.lastElementChild);
+                }
+
+                // 获取最后一个 block
+                var lastBlock = box.children[box.children.length - 1];
+                // 获取最后一个block下的子元素
+                var haveclass = lastBlock.children;
+                var n = '';
+                for(var j = 0; j < haveclass.length; j++){
+                    // 具有black的类名就加进 n
+                    if(haveclass[j].className == 'black'){
+                        n += "black";
+                        var mark=j+1;
+                    }
+                }
+                // 判断是否具有black
+                // if(n == "black"&&sum_bp==sum){
+                //     alert("你漏了一个黑块");
+                //     clearInterval(timer);
+                //     flag = true;
+                // }
+                if(n == "black"&&sum_bp==sum&&box.children.length==8){
+                    var choice=confirm("你漏了一个黑块\n按确定重新开始\n按取消返回菜单");
+                    if(choice==true){
+                        clearInterval(timer);
+                        box.style.top='-400px';
+                        // console.log('????');
+                        p.innerHTML=0;
+                        speed=1;
+                        sum=sum_bp=0;
+                        for(var i=0;i<4;i++){
+                            box.removeChild(box.lastElementChild);                        
+                        }
+                        bykeyboard();
+                    }
+                    else{
+                        clearInterval(timer);
+                        flag = true;
+                        document.getElementById("level").style.display="block";
+                        box.style.display="none";
+                        p.style.display="none";
+                        p.innerHTML = 0;
+                        sum=sum_bp=0;
+                        for(var i=0;i<4;i++){
+                            box.removeChild(box.lastElementChild);                        
+                        }
+                    }
+                }
+                else{
+                    sum_bp=sum;
+                }
+                console.log(n);
+
+                //创建新block
+                var newBlock = document.createElement("div");
+                newBlock.className = "block";
+
+                // 随机整数
+                var random = Math.floor(Math.random()*4+1);
+                for(var i = 1; i < 5; i++){
+
+                    //创建一行里面的小格子
+                    var newDiv = document.createElement("div");
+                    // console.log("i ==>" , i); // 1 2 3 4
+
+                    // 如果 i和随机数相等就为黑块
+                    if(i == random){
+                        newDiv.className = "black";
+                    }
+                    newBlock.appendChild(newDiv);
+                }
+                // 把创建的block加到box最前面
+                box.insertBefore(newBlock , box.children[0]);
+
+                // 创建新的恢复top值 100就是小块的高度，使小块无缝衔接
+                box.style.top = "-100px";
+            }
+            else if(box.offsetTop >= -100 &&box.offsetTop<0){
+                    //键盘操作
+                    
+                    // 判断box的子元素长度是否大于等于9
+                    if(box.children.length >= 9){
+                        //删除最后一个子元素
+                        box.removeChild(box.lastElementChild);
+                    }
+                    // 获取最后一个 block
+                    var lastBlock = box.children[box.children.length - 1];
+                    // 获取最后一个block下的子元素
+                    var haveclass = lastBlock.children;
+                    for(var j = 0; j < haveclass.length; j++){
+                        // 具有black的类名就把下标给mark
+                        if(haveclass[j].className == 'black'){
+                            mark=j+1;
+                        }
+                    }
+                    // console.log('?mark=',mark);
+
+                    //判断是否得分
+                    document.onkeydown = function (event) {
+                
+                    // alert('test');
+                    console.log(event.key,'mark=',mark);
+                    switch(event.key){
+                    case'a':if(mark==1){                           
+                            score();
+                            haveclass[mark-1].removeAttribute("class");
+                        }                        
+                    case's':if(mark==2){
+                            score();
+                            haveclass[mark-1].removeAttribute("class");
+                        }
+                    case'k':if(mark==3){
+                            score();
+                            haveclass[mark-1].removeAttribute("class");
+                        }
+                    case'l':if(mark==4){ 
+                            score();
+                            haveclass[mark-1].removeAttribute("class");
+                        }
+                    }
+                }
+            }
+        },15)
+
+        function score(){
+            
+            // 分数自加
+            sum++;
+
+            // 分数追加到标签
+            p.innerHTML = sum;
+
+            if(speed<=2){
+                if(sum % 3 == 0){
+                    speed += 0.5;
+                }
+            }else if(speed<=5){
+                if(sum % 3 == 0){
+                    speed += 0.3;
+                }
+            }else{
+                if(sum % 3 == 0){
+                    speed += 0.;
+                }
+            }
+
+        }  
+        
+        box.onclick = function(e){
+                // console.log(e.target);
+                if(!flag){
+                }else{
+                    alert("游戏结束啦，返回菜单");
+                    document.getElementById("level").style.display="block";
+                    box.style.display="none";
+                    p.style.display="none";
+                }
+            }
+    }
+
+    function quit(){
+        location.assign("../../game_scene05_op2-2.html");
+    }
+    function playSound(){
+            var audio=document.getElementById("mymusic");
+            if(audio.paused) {  
+                audio.load;     
+                audio.play(); 
+            }
+        }
+        //调用
+        window.onclick=function () {
+            playSound();
+        }
+</script>
+</html>

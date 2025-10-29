@@ -1,0 +1,87 @@
+.backgroundImg{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position: center;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    left: 10%;
+    right: 10%;
+    top: 0;
+    width: 80%;
+    height: 100%;
+    z-index: -1;
+}
+.save {
+    text-align: center;
+    margin: 10px auto;
+    width: max-content;
+    color: white;
+    font-size: 7vw;
+    text-decoration: none;
+}
+
+.save:hover {
+    cursor: pointer;
+    color:rgb(55, 111, 253);
+    background-color: white;
+}
+.load {
+    text-align: center;
+    margin: 10px auto;
+    width: max-content;
+    color: white;
+    font-size: 7vw;
+    text-decoration: none;
+}
+
+.load:hover {
+    cursor: pointer;
+    color:rgb(55, 111, 253);
+    background-color: white;
+}
+.home{
+    
+    background-image: url("../image/back1.png");
+    z-index: 1;
+    position: absolute;
+    top: 81%;
+    right: 48%;
+    width: 5%;
+    height: 7%;
+    line-height: 0%;
+    padding: 0;
+    
+    background-size: 100% 100%;
+}
+.home:hover {
+    background-image: url("../image/back2.png");
+    cursor: pointer;
+}
+.back{
+    
+    background-image: url("../image/back3.png");
+    z-index: 1;
+    position: absolute;
+    top: 81%;
+    right: 56%;
+    width: 5%;
+    height: 7%;
+    line-height: 0%;
+    padding: 0;
+    
+    background-size: 100% 100%;
+}
+.back:hover {
+    background-image: url("../image/back4.png");
+    cursor: pointer;
+}
+.page {
+    margin: 0 auto 0 auto;
+    height: 30%;
+    width: 20%;
+    position: relative;
+    margin-top: 10%;
+    border: 3px solid whitesmoke;
+}

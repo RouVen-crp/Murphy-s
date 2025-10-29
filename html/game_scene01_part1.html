@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+    <audio  autoplay="autoplay" loop  id="music">
+        <source src="../bgm/游戏进行中的bgm C.mp3" autostart="true">
+    </audio>
+    <div>
+        <img src="../image/bar_scene.gif" class="backgroundImg" draggable="false">
+    </div>
+
+    <div>
+
+        <!-- <div id="pictures">
+            </div>
+
+            <div id="change_scene">
+                <img id="change_scene_pic" class="center-horizontal" src="../img/white_curtain.png">
+            </div>
+
+            <div id="menu_caller" onmouseover="menu_in()"></div>
+
+            <div id="menu" onmouseleave="menu_out()">
+                <div class="menu_option" onclick="save_game()"><p>存储游戏</p></div>
+                <div class="menu_option" onclick="load_game()"><p>读取游戏</p></div>
+                <div class="menu_option" onclick="go_to_title()"><p>标题画面</p></div>
+            </div> -->
+
+        <button class="last_dialog" onclick="lastDialog();" title="回溯"></button>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <img class="change" src="../image/bar.gif">
+                <!-- <div id="profile_box">
+                        <img id="profile" class="center-horizontal">
+                    </div> -->
+
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        var dialog_data = [
+
+            "昏黄的灯光打在你略显苍白的脸上，光影明灭...",
+            "与旧时不同，今日你孤身一人",
+            "往常那个和你心意相通的人，你的开心果，再也不会回来了",
+            "你们正是在这间酒吧初次相识的。先是同事，再是情侣，最后顺理成章的步入婚姻的殿堂",
+            "你们向来无话不谈，时事政治，酒类品鉴，你常常为她身上的生命活力和渊博的知识所折服",
+            "一起去听演唱会，一起在海边留下合影...",
+            "如果不是那次意外..."
+        ];
+        
+        var speaker_data = [
+            "（旁白）", "（旁白）", "（旁白）", "（旁白）",
+            "（旁白）", "（旁白）", "（旁白）"
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+
+        function nextScene() {
+            location.assign("game_scene01_part2.html");
+        }
+        function playSound(){
+            var audio=document.getElementById("music");
+            if(audio.paused) {  
+                audio.load;     
+                audio.play(); 
+            }
+        }
+        //调用
+        window.onclick=function () {
+            playSound();
+        }
+    </script>
+</body>
+
+</html>

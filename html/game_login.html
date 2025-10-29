@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainmenu.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/logingame.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/font_define.css">
+
+    <title>登录</title>
+
+</head>
+
+<body onselectstart="return false;">
+
+    <div id="gameTitle">
+        <span style=" color:rgb(0, 232, 158);">RE:</span>re
+    </div>
+
+    <div id="login">
+        <label for="username" class="txt">账&nbsp&nbsp号：</label><input type="text" id="logUN" placeholder="请输入账号："><br>
+        <label for="password" class="txt">密&nbsp&nbsp码：</label><input type="password" id="logPW"
+            placeholder="请输入密码："><br>
+        <button onclick="log()" class="menuOptions"><span>登录</span></button>&nbsp&nbsp
+        <button onclick="changeRegister()" class="menuOptions"><span>注册</span></button>
+    </div>
+
+    <script src="../JS/save_and_load.js"></script>
+    <script>
+        const login = document.getElementById('login');
+        const register = document.getElementById('register');
+
+        //注册按钮
+        function changeRegister() {
+            location.assign("game_register.html");
+        }
+
+        //登录方法
+        function log() {
+            let logUN = document.getElementById('logUN').value;
+            let logPW = document.getElementById('logPW').value;
+            //判断用户是否输入数据
+            if (logUN === "" && logPW === "") {
+                alert("请输入用户名或密码");
+            } else {
+                //判断用户名是否已经注册
+                if (logUN in localStorage) {
+                    //如果已经注册，获取用户密码
+                    let password = localStorage[logUN];
+                    //判断用户输入的密码和 注册的密码是否一致
+                    if (logPW === password) {
+                        alert("登录成功！");
+                        currentUser(logUN);
+                        document.getElementById('logUN').value = "";
+                        document.getElementById('logPW').value = "";
+                        location.assign("game_scene01_part1.html");
+                    } else {
+                        alert("密码错误");
+                    }
+                } else {
+                    alert("用户不存在，请先注册！");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+</body>
+
+</html>

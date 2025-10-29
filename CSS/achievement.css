@@ -1,0 +1,64 @@
+#box{
+    position: absolute;
+    width: 94%;
+    height: 94%;
+    left: 3%;
+    top: 3%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5rem;
+}
+
+#achievement{
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    font-size: 1.5em;
+    top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    overflow-y: scroll;
+}
+
+.achievement{
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 40%;
+    color: rgba(0, 0, 0, 0.5);
+    transition: box-shadow 500ms;
+}
+
+.achievement_name{
+    font-family: 楷体;
+    font-size: 35;
+    color: black;
+}
+
+.achievement_condition{
+    font-family: 楷体;
+    font-size: 30;
+    color: black;
+}
+
+.achievement_discription{
+    font-family: 楷体;
+    font-style: italic;
+    font-size: 15;
+    color: rgb(24, 128, 128);
+}
+
+.option{
+    position: absolute;
+    font-size: 1em;
+    text-align: center;
+    float: left;
+    left: 7%;
+    top: 5%;
+    cursor: pointer;
+}
+
+#go_back{
+    color: black;
+    font-family: 楷体;
+    font-size: x-large;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+
+    <script src="../JS/game_event.js"></script>
+    <script src="../JS/save_and_load.js"></script>
+    <title>RE:re</title>
+</head>
+
+<body onselectstart="return false;" onload="judge()" style="overflow:hidden;background:#000; color:#FFF;">
+
+    <!-- 背景图片 -->
+    <div>
+        <img src="../image/scene.jpg" class="backgroundImg" draggable="false">
+    </div>
+
+    <div>
+        <div class="calendar calendar1">
+            <div></div>
+            <div></div>
+        </div>
+        <button class="last_dialog" onclick="lastDialog();">回溯</button>
+        <div class="text_box" onclick="nextDialog();">
+
+            <div class="speaker_name" id="speaker_name"></div>
+
+            <div class="dialog_box">
+                <img class="voice" src="../image/yinbo.png">
+                <img class="next" src="../image/next.gif" onclick="nextDialog();">
+                <div id="dialog"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // 对话内容
+        var dialog_data = [
+            "忽然你感到一阵眩晕...但是你很快回过神来",
+            "还是先想想Jill的事吧...",
+            "Max的话在你心中回荡...",
+            "他总是所有人里看的最清楚的那个...",
+            "不知不觉间，在街角霓虹灯的照耀下，你接近了你的公寓...",
+            "……早知如此，何必当初……",
+            "你再次拿出手机，拨打了客服的电话",
+            "……一段时间过后……",
+            "……感谢您的配合，等您把仿生人的记忆体通过任何方式邮寄至总部并由我们查收后，我们将会给予您退款哦……",
+        ];
+        // 对话对应的speaker名，觉得不需要可以打空格
+        var speaker_data = [
+            "（旁白）", "Gillian", "（旁白）", "Gillian", "（旁白）", "Gillian", "（旁白）", "（旁白）", "（客服）",
+        ];
+
+        var dialog_id = 0;
+        var spk = document.getElementById("speaker_name");
+        var dlg = document.getElementById("dialog");
+
+        function nextScene() {
+            location.assign("game_scene05_part2.5.html"); //载入的下一个场景名
+        }
+
+    </script>
+</body>
+
+</html>

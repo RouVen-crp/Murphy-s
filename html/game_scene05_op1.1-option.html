@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="../CSS/mainscene.css">
+
+        <script src="../JS/game_event.js"></script>
+        <title>RE:re</title>
+    </head>
+
+    <body onselectstart="return false;" style="overflow:hidden;background:#000; color:#FFF;">
+
+        <div>
+            <img src="../image/homesad.gif" class="backgroundImg" draggable="false">
+        </div>
+        <button class="last_dialog" onclick="lastDialog_for_option();" title="回溯"></button>
+        <div>
+            <div class="gameoption_box">
+                <button class="gameoption1" onclick="option1()">拿出来<div class="dot"></div></button>
+                <button class="gameoption2" onclick="option2()">不拿出来<div class="dot"></div></button>
+            </div>
+        </div>  
+        <script>
+            function option1(){
+                location.assign("game_scene05_op1.1.1.html"); 
+            }
+            function option2(){
+                location.assign("game_scene05_op1.1.2.html"); 
+            }
+            function lastDialog_for_option(){
+                window.history.go(-1);
+            }
+        </script> 
+    </body>
+</html>

@@ -1,0 +1,172 @@
+body{
+    background-image: url("../image/guilding-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;  
+    text-align:center;
+}
+
+
+h1{  
+    top: 20px;
+    background: radial-gradient(circle,  rgb(74, 65, 248) 0%, transparent 100%);
+    color: rgb(255, 255, 255);
+    font-size: 2em;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: default;
+}
+
+p{
+   
+    top: 20px;
+    font-size: x-large;
+    font-family: 楷体;
+    
+}
+.txt {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    margin: 0 auto;
+    
+  }
+.txt {
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    background: radial-gradient(circle,  rgb(20, 40, 62) 0%, rgb(45, 74, 106) 100%);
+    cursor: default;
+    font-size: 3ex;
+    font-family: STXinwei;
+  }
+  .txt :hover {
+    color: #f9f9f9;
+    background: transparent;
+     box-shadow:none;
+  }
+  .txt :before,
+  .txt :after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1f2139;
+    
+    transition:400ms ease all;
+  }
+  .txt :after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .txt :hover:before,
+  .txt :hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+.img{
+    left: 2%;
+    width: 90%;
+    
+}
+#footer{
+    font-size: 1em;
+    color:#fff;
+}
+.back{
+    margin-left: -90%;
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px; 
+    font-size: 3ex;
+    font-family: STXinwei;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+.back{
+    position: relative;
+    right: 20px;
+    bottom: 20px;
+    border:none;
+    box-shadow: none;
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    -webkit-perspective: 230px;
+    perspective: 230px;
+  }
+  .back span {
+    background: transparent;
+    background: linear-gradient(0deg, rgb(95, 0, 238) 0%, rgb(89, 52, 236) 100%);
+    display: block;
+    position: absolute;
+    width: 130px;
+    height: 40px;
+   
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    border-radius: 5px;
+    margin:0;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+  }
+  .back span:nth-child(1) {
+    
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+    -webkit-transform-origin: 50% 50% -20px;
+    -moz-transform-origin: 50% 50% -20px;
+    transform-origin: 50% 50% -20px;
+  }
+  .back span:nth-child(2) {
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -webkit-transform-origin: 50% 50% -20px;
+    -moz-transform-origin: 50% 50% -20px;
+    transform-origin: 50% 50% -20px;
+  }
+  .back:hover span:nth-child(1) {
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+  }
+  .back:hover span:nth-child(2) {
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+   color: transparent;
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+  }
